@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Traffic & Low-Light Cameras</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background:#f8f9fa; color:#222; }
+    .hero { padding:3.5rem 0; background:linear-gradient(180deg,#ffffff,#f1f5f9); border-bottom:1px solid #e9ecef; }
+    .gallery-img { cursor:pointer; object-fit:cover; max-height:300px; }
+    .card-img-top { object-fit:cover; height:250px; }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <header class="hero text-center">
+    <div class="container">
+      <h1 class="display-5">Mobile & Low-Light Traffic Cameras</h1>
+      <p class="lead">Custom-built systems for traffic monitoring, analytics, and long-term recording in all weather conditions.</p>
+    </div>
+  </header>
+
+  <main class="container my-5">
+
+<!-- Section 1: Traffic Analytics Camera -->
+<section id="traffic-camera" class="mb-5">
+  <h2 class="h4 mb-3">Mobile Traffic Analytics Camera</h2>
+  <p>This portable camera system is designed for short-term deployments to capture video, extract 
+    <strong>traffic volumes</strong>, <strong>short-term ADT</strong>, <strong>TMC summaries</strong>, 
+    and per-class vehicle counts using a custom deep learning model.</p>
+
+  <div class="row g-4">
+    <!-- Video -->
+    <div class="col-md-6">
+      <div class="ratio ratio-16x9">
+        <video controls preload="metadata" poster="videos/vid_thumbnail.jpg">
+          <source src="videos/concat_output.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+      </div>
+      <p class="small text-muted mt-2">Sample tracking clip.</p>
+    </div>
+
+    <!-- Trajectory + Heatmap -->
+    <div class="col-md-6">
+      <img src="images/track-clip_20250401_172431.mp4_trajectory.jpg" 
+           class="img-fluid rounded mb-3 shadow-sm" 
+           alt="Vehicle trajectories (5:30–6 PM)">
+      <img src="images/Transition_heatmap_log_normalized.jpg" 
+           class="img-fluid rounded shadow-sm" 
+           alt="Heatmap">
+    </div>
+  </div>
+
+  <!-- Slideshow for hourly TMC diagrams -->
+<!-- Slideshow for hourly TMC diagrams -->
+<div class="row g-4 mt-4">
+  <div class="col-12">
+    <div id="tmcCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- First image active -->
+        <div class="carousel-item active">
+          <img src="images/Turning_Movement_Diagrams-hourly/TMC_20250401_hour_17.jpg" 
+               class="d-block w-100 rounded shadow-sm" 
+               alt="TMC Hour 17">
+        </div>
+        <!-- More images -->
+        <div class="carousel-item">
+          <img src="images/Turning_Movement_Diagrams-hourly/TMC_20250401_hour_18.jpg" 
+               class="d-block w-100 rounded shadow-sm" 
+               alt="TMC Hour 18">
+        </div>
+        <div class="carousel-item">
+          <img src="images/Turning_Movement_Diagrams-hourly/TMC_20250401_hour_19.jpg" 
+               class="d-block w-100 rounded shadow-sm" 
+               alt="TMC Hour 19">
+        </div>
+      </div>
+
+      <!-- Controls with visible arrows -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#tmcCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#tmcCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <p class="small text-muted text-center mt-2">Turning Movement Diagrams (hourly)</p>
+  </div>
+</div>
+
+
+  <div class="mt-4">
+    <h6>Key Features</h6>
+    <ul>
+      <li>Continuous recording for up to <strong>3 days</strong> (circular buffer).</li>
+      <li>Custom CNN model detects vehicle class, counts, TMC, and trajectories.</li>
+      <li>Portable tripod or pole deployment — quick setup and removal.</li>
+      <li>Outputs in JSON/CSV with optional visual overlays (trajectories, heatmaps).</li>
+    </ul>
+  </div>
+</section>
+
+
+    <!-- Section 2: Pi Zero Low-Light Camera -->
+    <section id="pi-zero" class="mb-5">
+      <h2 class="h4 mb-3">Pi Zero 2 Low-Light All-Weather Camera</h2>
+      <div class="text-center mb-4">
+        <img src="images/camerav3.jpeg" class="img-fluid rounded shadow" alt="Pi Zero Camera" width="650">
+      </div>
+      <p>This project provides a <strong>low-power, weatherproof, long-term recording solution</strong> using the Raspberry Pi Zero 2 W with a low-light camera module. Built for outdoor deployment, it withstands <strong>rain, snow, and extreme temperatures</strong> while recording efficiently with <strong>automatic file management</strong> and minimal power draw.</p>
+      <p>Applications include <em>wildlife monitoring</em>, <em>security</em>, <em>time-lapse photography</em>, and <em>transportation studies</em>.</p>
+
+      <div class="row g-4 my-4">
+        <div class="col-md-6 text-center">
+          <img src="images/deployment.jpeg" class="img-fluid rounded shadow" alt="Deployment" width="550">
+          <p class="small mt-2">Urban deployment (Installed in less than 15 min.)</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="images/img/Slide3.jpeg" class="img-fluid rounded shadow" alt="Video analysis" width="550">
+          <p class="small mt-2">Visualization of video analysitcs.</p>
+        </div>
+      </div>
+
+      <h6>Features</h6>
+      <ul>
+        <li><strong>No external WiFi/5G required</strong> — Pi Zero 2 W creates its own hotspot.</li>
+        <li><strong>Supports multiple camera modules</strong>.</li>
+        <li><strong>Custom 3D-printed case</strong> for durability and weather resistance.</li>
+        <li><strong>Tested for 7 days</strong> of continuous video recording.</li>
+        <li><strong>Flexible recording time</strong> — adjustable for long-term use.</li>
+        <li><strong>Remote SSH access & local streaming</strong> without internet.</li>
+        <li><strong>Low power</strong> — runs on battery or solar.</li>
+        <li><strong>Weatherproof design</strong> — reliable in adverse environments.</li>
+      </ul>
+
+      <div class="my-4 text-center">
+        <img src="images/img/Slide1.jpeg" class="img-fluid rounded shadow" alt="Version 1" width="550">
+        <p class="small mt-2">Version 1 prototype</p>
+      </div>
+
+      <p class="mb-0">This system has been tested in urban environments for <strong>trip generation data</strong> collection under ITE guidelines. It captures vehicles, pedestrians, and cyclists even in low-light conditions, making it ideal for <strong>transportation research</strong>.</p>
+
+      <div class="text-center my-4">
+        <img src="images/img/Slide2.jpeg" class="img-fluid rounded shadow" alt="Camera v0 testing">
+        <p class="small mt-2">Deployment of Cam v0</p>
+      </div>
+
+      <p class="small text-muted">Special thanks to <strong>Boyang Xiang, Ph.D.</strong>, Sr. Lab Manager, Civil & Environmental Engineering, UMass Lowell, for designing and 3D printing the custom enclosure.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-white border-top">
+    <div class="container small text-muted text-center">
+      © <span id="year"></span> Smart Camera Projects — All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

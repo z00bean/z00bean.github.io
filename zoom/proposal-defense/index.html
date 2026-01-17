@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="robots" content="noindex, nofollow" />-->
+    <meta name="robots" content="noindex" />
+    <title>Zubin - PhD Proposal Defense</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #0073aa;
+            text-align: center;
+        }
+        .join-btn {
+            display: block;
+            width: 60%;
+            max-width: 210px;
+            padding: 10px;
+            background-color: #0073aa;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 20px auto;
+            font-size: 18px;
+        }
+
+        .join-btn:hover {
+            background-color: #005a87;
+        }
+
+        .info {
+            margin: 20px 0;
+        }
+
+        .info h3 {
+            color: #0073aa;
+        }
+
+        .committee {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .committee h2 {
+            color: #0073aa;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .member {
+            margin-bottom: 15px;
+        }
+
+        .name {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .title {
+            color: #555;
+        }
+
+        .affiliation {
+            color: #777;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Zubin Bhuyan - Proposal Defense</h1>
+        <a href="https://uml.zoom.us/j/96089277400" target="_blank" class="join-btn">Join Meeting</a>
+        <div class="info">
+            <h3>Zubin Bhuyan- Proposal Defense.</h3>
+            <p><strong>Topic:</strong> Zubin Bhuyan - Proposal Defense</p>
+            <p><strong>Time:</strong> Jul 19, 2024 09:30 AM Eastern Time (US and Canada)</p>
+            <p><strong>Join Zoom Meeting:</strong> <a href="https://uml.zoom.us/j/96089277400" target="_blank">https://uml.zoom.us/j/96089277400</a></p>
+            <p><strong>Meeting ID:</strong> 960 8927 7400</p>
+        </div>
+        <h2>Title: Deep Learning for Highway Traffic and Work Zone Insights: Vehicle Detection and Trajectory Analysis with Thermal and RGB Video</h2>
+        <div class="committee">
+            <h2>Committee Members</h2>
+            <div class="member">
+                <p class="name">Dr. Yu Cao (Advisor)</p>
+                <p class="title">Professor, Director</p>
+                <p class="affiliation">Miner School of Computer & Information Sciences, UMass Center for Digital Health (CDH)</p>
+            </div>
+            <div class="member">
+                <p class="name">Dr. Benyuan Liu (Advisor)</p>
+                <p class="title">Professor, Director</p>
+                <p class="affiliation">Miner School of Computer & Information Sciences, UMass Center for Digital Health (CDH), Computer Networking Lab, CHORDS</p>
+            </div>
+            <div class="member">
+                <p class="name">Dr. Yuanchang Xie (Member)</p>
+                <p class="title">Professor</p>
+                <p class="affiliation">Civil and Environmental Engineering</p>
+            </div>
+            <div class="member">
+                <p class="name">Dr. Hengyong Yu (Member)</p>
+                <p class="title">Professor, FIEEE, FAAPM</p>
+                <p class="affiliation">Department of Electrical & Computer Engineering</p>
+            </div>
+        </div>   
+        <h4><i>Abstract</i></h4>
+        <p>
+            Intelligent Transportation Systems (ITS) encompass a broad range of technologies aimed at improving the safety, efficiency, and sustainability of transportation and infrastructure. These systems manage traffic flow, enhance safety, and improve public transit efficiency through innovations such as real-time tracking and scheduling. Additionally, ITS rely on the continuous collection and intelligent analysis of data, enabling proactive management and informed decision-making in response to dynamic traffic conditions. Leveraging deep learning, significant advancements have been made in the areas of traffic control, congestion reduction, and autonomous driving technologies, thus enhancing system efficiency and safety. However, there remains considerable untapped potential for deep learning within ITS, particularly in handling complex environments and meeting the increasing safety and equity requirements of modern transportation systems.
+        </p>
+        <p>
+            This doctoral thesis proposal focuses on applying deep learning and computer vision (CV) techniques to a comprehensive set of datasets, including both ground-level and aerial imagery in RGB and thermal modalities. The primary aim is to enhance vehicle detection, tracking, and analysis, particularly focusing on highway traffic. Data collection includes multiple locations in Massachusetts and New Hampshire, covering various general traffic environments and specifically targeted work zones to improve the dataset’s relevance to real-world scenarios. Notably, three of these locations include active work zones with lane closures, two of which are nighttime work zones. These specific sites provide both aerial datasets, captured via drones, and ground-level thermal footage. The aerial datasets are annotated with Oriented Bounding Boxes (OBB), while segmentation masks are used in the ground-level thermal videos. We developed three key datasets: the MA Highway Aerial Dataset, the MA Nighttime UAV Thermal Dataset, and the MA-NH Highway Thermal Dataset. Each dataset includes vehicle annotations as well as segmentation of roadways and various infrastructure elements, such as channelizer drums and cones. 
+        </p>
+        <p>
+            A novel deep learning model was developed for segmenting and detecting vehicles using OBBs, along with an OBB tracking algorithm that extracts vehicle trajectories in aerial videos. Additionally, we introduced a CNN architecture, based on YOLOv8 enhanced with Group Shuffle Convolution modules, which significantly improved the detection and segmentation performance in thermal drone videos. Furthermore, we developed models to segment and analyze roadways and related infrastructures, such as highways, exit lanes, and channelizer drums. Leveraging these models enables accurate identification of vehicles near work zones and detection of those making last-minute lane changes in active work zones with lane closures. This comprehensive strategy of simultaneously segmenting roadways and vehicles not only yields more detailed information about highway and work zone scenarios, but also enhances the predictive capabilities of our system. Such improvements can potentially increase the responsiveness of traffic management systems in real-time scenarios.
+        </p>
+        <p>
+            Moving forward, our efforts will be directed towards enhancing the effectiveness of our deep learning pipelines, with a specific focus on improving detection performance. This enhancement involves implementing a modified mosaic data augmentation strategy that utilizes segmentation-mask areas and targets ``hard examples'' based on missed detections in tracked trajectories. Additionally, we propose an enhancement to the Slicing Aided Hyper Inference (SHAI) framework, which we have named Selective-SHAI. This approach is designed for rapid inference and includes a fine-tuning pipeline optimized for the detection of small objects. It specifically concentrates on relevant regions, such as highways in our case. Further efforts will include expanded trajectory analysis to demonstrate how these results can facilitate a deeper understanding of driver behavior, such as merging analysis and the identification of risky driving behaviors.
+        </p>
+
+        <!--
+        <div class="info">
+            <p><strong>Topic:</strong> Zubin Bhuyan - Proposal Defense</p>
+            <p><strong>Time:</strong> Jul 19, 2024 09:30 AM Eastern Time (US and Canada)</p>
+            <p><strong>Join Zoom Meeting:</strong> <a href="https://uml.zoom.us/j/96089277400" target="_blank">https://uml.zoom.us/j/96089277400</a></p>
+            <p><strong>Meeting ID:</strong> 960 8927 7400</p>
+        </div>
+        <div class="dial-in">
+            <h2>One tap mobile</h2>
+            <p>+13092053325,,96089277400# US</p>
+            <p>+13126266799,,96089277400# US (Chicago)</p>
+        </div>
+        <div class="dial-in">
+            <h2>Dial by your location</h2>
+            <p>+1 309 205 3325 US</p>
+            <p>+1 312 626 6799 US (Chicago)</p>
+            <p>+1 646 876 9923 US (New York)</p>
+            <p>+1 646 931 3860 US</p>
+            <p>+1 301 715 8592 US (Washington DC)</p>
+            <p>+1 305 224 1968 US</p>
+            <p>+1 507 473 4847 US</p>
+            <p>+1 564 217 2000 US</p>
+            <p>+1 669 444 9171 US</p>
+            <p>+1 669 900 6833 US (San Jose)</p>
+            <p>+1 689 278 1000 US</p>
+            <p>+1 719 359 4580 US</p>
+            <p>+1 253 205 0468 US</p>
+            <p>+1 253 215 8782 US (Tacoma)</p>
+            <p>+1 346 248 7799 US (Houston)</p>
+            <p>+1 360 209 5623 US</p>
+            <p>+1 386 347 5053 US</p>
+            <p><strong>Meeting ID:</strong> 960 8927 7400</p>
+            <p>Find your local number: https://uml.zoom.us/u/ac7qtSIRWm</p>
+        </div>
+        -->
+        <div class="footer">
+            <p>&copy; 2024 Zubin Bhuyan-UML | <a href="https://cs.uml.edu/~zbhuyan/">Home</a> | <a href="https://cs.uml.edu/~zbhuyan/zoom">Meetings | <a href="https://medium.com/@zubinbhuyan" target="_blank">Medium</a> | <a href="https://www.uml.edu/myuml/Submissions/2024/2024-07-15-13-26-13-Ph-D-Dissertation-Proposal-Defense.aspx" target="_blank">UML_NOW</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

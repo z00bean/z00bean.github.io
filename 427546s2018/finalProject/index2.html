@@ -1,0 +1,66 @@
+<html lang="en">
+	<head>
+		<title>CG PROJECT</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/three.js"></script>
+		<script src="js/OrbitControls.js"></script>
+	</head>
+	<body >
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col" style="background-color:#9ac5fd">
+						<table class="table table-bordered">
+							<tr>
+								<td>Ambient Lights: <input type="checkbox" id="chkAmbLight" onchange="setAmbLight()" checked></td>
+								<td>Directional Lights: <input type="checkbox" id="chkDirLight" onchange="setDirLight()"></td>
+								<td>Shadow: <input type="checkbox" id="chkShadow" onchange="setShadow()"></td>
+								<td colspan="2">
+									<form>
+											Camera type:
+											<input type="radio" name="colors" id="ortho" checked onchange="setCameraType()">Ortho
+											<input type="radio" name="colors" id="perspective" onchange="setCameraType()">Perspective
+									</form>
+								</td>
+							</tr>
+							<tr>
+								<td>Auto-rotate house: <input type="checkbox" id="chkRotate" onchange="setRotate()"></td>
+								<td>Rotate camera: <input type="checkbox" id="chkRotateCamera" onchange="setRotateCamera()"></td>
+								<td>Shear:
+									X-Y:<input type="checkbox" id="chkShearXY" onchange="setShearStatusXY()">
+									Y-Z:<input type="checkbox" id="chkShearYZ" onchange="setShearStatusYZ()">
+									Z-X-<input type="checkbox" id="chkShearZX" onchange="setShearStatusZX()">
+								</td>
+								<td>Orientation lines: <input type="checkbox" id="chkHelper" onchange="setHelper()"></td>
+								<td>
+									Vanishing point:
+									<select id="selectVanishingPoint" onchange="setVanishingPoint()" disabled>
+											<option value="select">Select</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											</select>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2"><u>Translate</u>: Right click and drag. <u>Rotate</u>: Left click and Drag</td>
+								<td>*<a href ="index.html">Full view webpage</a></td>
+								<td>*<a href ="reportFinal.pdf" target = "_blank"><b>REPORT</b></a></td>
+								<td>*<a href ="manualFinal.pdf" target = "_blank"><b>Manual</b></a></td>
+							</tr>
+						</table>
+				</div>
+		</div>
+		<div class="row ">
+				<div class = "col" id = "4">
+				</div>	
+		</div>
+		<script src="js/cgProject2.js"></script>
+		</div>
+	</body>
+</html>
