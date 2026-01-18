@@ -1,0 +1,101 @@
+/* Enhanced sidebar visibility with background image */
+#header {
+	background-color: #1f1815;
+	background-attachment: scroll, scroll;
+	background-image: url("../assets/css/images/overlay.png"), url("../images/bg3-det_OBB.jpg");
+	background-position: top left, top left;
+	background-repeat: repeat, no-repeat;
+	background-size: auto, cover;
+	padding: 1em 4em !important;
+}
+
+#header h1, #header h3 {
+	background: rgba(0, 0, 0, 0.8);
+	padding: 0.5em;
+	border-radius: 0.35em;
+	color: white !important;
+}
+
+#header h3 {
+	cursor: default !important;
+	pointer-events: none;
+	margin-bottom: 0.5em;
+}
+
+#header ul {
+	background: rgba(0, 0, 0, 0.6);
+	padding: 1em;
+	border-radius: 0.35em;
+}
+
+#header ul li {
+	margin: 0.3em 0;
+}
+
+#header ul li a {
+	color: rgba(255, 255, 255, 0.8) !important;
+	text-decoration: none;
+	padding: 0.2em 0.5em;
+	border-radius: 0.25em;
+	display: block;
+	transition: all 0.2s ease;
+}
+
+#header ul li a:hover {
+	background: rgba(73, 191, 157, 0.3);
+	color: #49bf9d !important;
+}
+
+#header ul li.current-page {
+	background: rgba(73, 191, 157, 0.4);
+	border-radius: 0.35em;
+	padding: 0.2em 0.5em;
+}
+
+#header ul li.current-page span {
+	color: #49bf9d !important;
+	font-weight: bold;
+}
+
+/* Compact layout for project pages */
+.compact-layout #main {
+	padding-bottom: 2em !important;
+}
+
+.compact-layout #project-details .container {
+	max-width: 90% !important;
+}
+
+.compact-layout #project-details h3 {
+	margin-bottom: 0.5em !important;
+}
+
+.compact-layout #project-details ul, 
+.compact-layout #project-details p {
+	margin-bottom: 1em !important;
+}
+
+/* Project image opacity */
+#project-image img {
+	opacity: 1 !important;
+}
+
+/* Project details section spacing */
+#project-details {
+	margin: 1em 0 0 0 !important;
+	padding: 1em 0 0 0 !important;
+}
+
+/* External URL indicator */
+.external-url::after {
+	content: "";
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-left: 4px;
+	background-image: url("../assets/css/images/external-URL-icon_transparent-small.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	vertical-align: text-top;
+}
