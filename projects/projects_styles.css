@@ -99,3 +99,68 @@
 	background-position: center;
 	vertical-align: text-top;
 }
+
+/* Project content images and captions */
+.project-images {
+	margin: 2em 0;
+}
+
+.image-container {
+	margin: 1.5em 0;
+	text-align: center;
+}
+
+.image-container.full-width {
+	width: 100%;
+}
+
+.image-container.right-aligned {
+	float: right;
+	width: 45%;
+	margin-left: 2em;
+	margin-bottom: 1em;
+	clear: right;
+}
+
+.image-container.left-aligned {
+	float: left;
+	width: 45%;
+	margin-right: 2em;
+	margin-bottom: 1em;
+	clear: left;
+}
+
+.image-container img {
+	width: 100%;
+	height: auto;
+	border-radius: 0.35em;
+	box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2);
+}
+
+.image-caption {
+	margin-top: 0.5em;
+	font-size: 0.9em;
+	color: #333333;
+	font-style: italic;
+	text-align: center;
+	line-height: 1.4;
+}
+
+/* Clear floats after image sections */
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Ensure text flows around floated images */
+.project-content {
+	overflow: hidden;
+}
+
+.project-content p,
+.project-content h3,
+.project-content ul,
+.project-content ol {
+	text-align: justify;
+}
