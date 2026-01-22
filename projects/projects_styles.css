@@ -164,3 +164,36 @@
 .project-content ol {
 	text-align: justify;
 }
+/* Image size variations */
+.image-container.small {
+	width: 25% !important;
+}
+
+.image-container.medium {
+	width: 35% !important;
+}
+
+.image-container.large {
+	width: 55% !important;
+}
+
+/* For right-aligned images, adjust margins for smaller sizes */
+.image-container.right-aligned.small {
+	width: 25% !important;
+	margin-left: 1.5em;
+}
+
+.image-container.right-aligned.medium {
+	width: 35% !important;
+	margin-left: 1.5em;
+}
+
+.image-container.left-aligned.small {
+	width: 25% !important;
+	margin-right: 1.5em;
+}
+
+.image-container.left-aligned.medium {
+	width: 35% !important;
+	margin-right: 1.5em;
+}
