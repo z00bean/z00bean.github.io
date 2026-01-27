@@ -197,3 +197,25 @@
 	width: 35% !important;
 	margin-right: 1.5em;
 }
+/* Fit images in table - images span full table width */
+table.fit-images {
+	width: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	border-spacing: 2px !important;
+	border-collapse: separate !important;
+}
+
+table.fit-images td {
+	padding: 2px !important;
+	margin: 0 !important;
+	width: 50% !important;
+}
+
+table.fit-images img {
+	width: 100% !important;
+	height: auto;
+	display: block;
+	margin: 0 !important;
+	padding: 0 !important;
+}

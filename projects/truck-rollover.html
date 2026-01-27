@@ -21,13 +21,13 @@
 						<li><a href="traffic-camera.html">Low-Light Traffic Camera</a></li>
 						<li><a href="railroad-trespassing.html">Railroad Trespassing Detection</a></li>
 						<li><a href="miso-rag-llm.html">MISO RAG LLM</a></li>
+						<li class="current-page"><span>Truck Rollover Analysis</span></li>
+						<li><a href="thermal-uav.html">Thermal UAV Analysis</a></li>
 						<li><a href="bento.html">BENTO Traffic Observer</a></li>
 						<li><a href="edge-learning.html">Efficient Edge Learning</a></li>
 						<li><a href="crosswalk-net.html">CrosswalkNet</a></li>
-						<li><a href="thermal-uav.html">Thermal UAV Analysis</a></li>
 						<li><a href="work-zone-safety.html">Work Zone Safety</a></li>
 						<li><a href="netc-ai-studies.html">NETC Pilot AI Studies</a></li>
-						<li class="current-page"><span>Truck Rollover Analysis</span></li>
 						<li><a href="trip-generation.html">Trip Generation Models</a></li>
 					</ul>
 			</div>
@@ -51,7 +51,20 @@
 						<li><a href="https://cs.uml.edu/~zbhuyan/_reports_pdf/MassDOT_FinalReport_2023_Xie_Ai_TruckRolloverOnRamps.pdf" target="_blank" class="button external-url">Technical Report</a></li>
 						<li><a href="https://www.umasstransportationcenter.org/Document.asp?DocID=1199" target="_blank" class="button external-url">UMass Transportation Center</a></li>
 					</ul>
+					<p><i>Z. Bhuyan, Q. Chen, Y. Xie, Y. Cao and B. Liu, "Modeling the Risk of Truck Rollover Crashes on Highway Ramps Using Drone Video Data and Mask-RCNN," 2023 IEEE 26th International Conference on Intelligent Transportation Systems (ITSC), Bilbao, Spain, 2023, pp. 4052-4058, doi: 10.1109/ITSC57777.2023.10421999. <a href="https://ieeexplore.ieee.org/document/10421999" target="_blank">  IEEE Xplore</a></i></p>
 					<p>Vehicle detection using modified Mask-RCNN: Oriented Bounding Box (OBB) + instance segmentation for analyzing truck rollover incidents on highway ramps.</p>
+					
+					<table class="fit-images">
+						<tr>
+							<td><img src="https://raw.githubusercontent.com/z00bean/HighwayTrafficAnalysis/refs/heads/main/images/gif/Andover-400-3.11-4-COMP.gif" alt="Danvers, MA."></td>
+							<td><img src="https://raw.githubusercontent.com/z00bean/HighwayTrafficAnalysis/refs/heads/main/images/gif/Auburn-out-081-comp-154s-16s-3-COMP.gif" alt="Medford, MA."></td>
+						</tr>
+						<tr>
+							<td><i>Andover, MA: Interchange of I-495 and I-93.</i></td>
+							<td><i>Auburn, MA: Massachusetts Turnpike Near Exit 10.</i></td>
+						</tr>
+					</table>
+					
 					<h3>Technical Approach</h3>
 					<ul>
 						<li>Modified Mask-RCNN architecture</li>
@@ -60,10 +73,68 @@
 						<li>Drone video data analysis</li>
 						<li>Highway ramp safety assessment</li>
 					</ul>
+					<p>The deep-learning vehicle detection module plays a crucial role in identifying vehicles within the input data, while the tracking algorithm enhances the tracking precision by focusing on the orientation of vehicle bounding boxes. This integrated approach aims to provide a robust and effective solution for modeling the risk of truck rollover crashes on highway ramps using drone video data and Mask-RCNN.</p>
+					<div class="image-container full-width">
+							<img src="https://raw.githubusercontent.com/z00bean/HighwayTrafficAnalysis/refs/heads/main/images/interim-coll.jpg" />
+							<div class="image-caption">Visualization of the deep-learning detection module output with basic tracking without trajectory smoothing.</div>
+						</div>
+					<p>Traditional tracking algorithms are typically tailored for horizontal bounding boxes, posing a challenge for scenarios requiring orientation-aware tracking, such as ours with Oriented Bounding Boxes (OBB). Our specific video data characteristics, lacking abrupt occlusions or random object disappearances, allowed us to design a minimal and efficient tracking algorithm tailored to our needs. This algorithm relies on the intersection-over-union ratio of a given vehicle in consecutive frames to ensure accurate and effective tracking.</p>	
+
+						<div class="image-container full-width">
+							<img src="https://raw.githubusercontent.com/z00bean/HighwayTrafficAnalysis/refs/heads/main/images/lane_seg1.jpg" />
+							<div class="image-caption">Sample result of lane segmentation and border smoothing.</div>
+						</div>
+					<div class="image-container full-width">
+							<img src="https://raw.githubusercontent.com/z00bean/HighwayTrafficAnalysis/refs/heads/main/images/2022-11-17-02h49m41s204-distscale-SMALL.jpg" />
+							<div class="image-caption">Mapping pixel widths to distance units.</div>
+						</div>
+						<div class="image-container full-width">
+							<img src="https://raw.githubusercontent.com/z00bean/HighwayTrafficAnalysis/refs/heads/main/images/TRAJ-cluster-SMALL.jpg" />
+							<div class="image-caption">Speed profile clustering.</div>
+						</div>
+				</div>
+			</section>
+
+			<!-- Contact -->
+			<section id="three" style="margin-top: 2em;">
+				<h2>Contact</h2>
+				<div class="row">
+					<div class="col-4 col-12-small">
+						<ul class="labeled-icons">
+							<li>
+								<h3 class="icon solid fa-building"><span class="label">Address</span></h3>
+								Miner School of Computer & Information Sciences, <br />
+								1 University Avenue, Lowell
+								MA 01854<br />
+								United States
+							</li>
+						</ul>
+					</div>
+					<div class="col-8 col-12-small">
+						<ul class="labeled-icons">
+							<li>
+								<h3 class="icon solid brands fa-github"><span class="label">Github</span></h3>
+								<a href="https://github.com/z00bean" target="_blank">Github</a>
+							</li>
+							<li>
+								<h3 class="icon solid brands fa-linkedin"><span class="label">LinkedIn</span></h3>
+								<a href="https://www.linkedin.com/in/zubinbhuyan/" target="_blank">LinkedIn</a>
+							</li>
+							<li>
+								<h3 class="icon solid fa-graduation-cap"><span class="label">Scholar</span></h3>
+								<a href="https://scholar.google.com/citations?hl=en&user=h8zdPpUAAAAJ" target="_blank">Google Scholar</a>
+							</li>
+							<li>
+								<h3 class="icon solid brands fa-medium"><span class="label">Medium</span></h3>
+								<a href="https://zubinbhuyan.medium.com/" target="_blank">Medium</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</section>
 		</div>
-		<footer id="footer" style="margin-top: 2em;">
+
+		<!-- Footer -->
 			<div class="inner">
 				<ul class="icons">
 					<li><a href="https://github.com/z00bean" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>

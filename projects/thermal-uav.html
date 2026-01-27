@@ -21,13 +21,13 @@
 						<li><a href="traffic-camera.html">Low-Light Traffic Camera</a></li>
 						<li><a href="railroad-trespassing.html">Railroad Trespassing Detection</a></li>
 						<li><a href="miso-rag-llm.html">MISO RAG LLM</a></li>
+						<li><a href="truck-rollover.html">Truck Rollover Analysis</a></li>
+						<li class="current-page"><span>Thermal UAV Analysis</span></li>
 						<li><a href="bento.html">BENTO Traffic Observer</a></li>
 						<li><a href="edge-learning.html">Efficient Edge Learning</a></li>
 						<li><a href="crosswalk-net.html">CrosswalkNet</a></li>
-						<li class="current-page"><span>Thermal UAV Analysis</span></li>
 						<li><a href="work-zone-safety.html">Work Zone Safety</a></li>
 						<li><a href="netc-ai-studies.html">NETC Pilot AI Studies</a></li>
-						<li><a href="truck-rollover.html">Truck Rollover Analysis</a></li>
 						<li><a href="trip-generation.html">Trip Generation Models</a></li>
 					</ul>
 			</div>
@@ -55,8 +55,14 @@
 					</i></p>
 
 					<p><strong>Project Timeline:</strong> 2022 - 2024</p>
+
 					<p>Thermal imaging analysis solution aimed at vehicle tracking in drone-captured videos, incorporating oriented bounding boxes and SAHI for superior detection capabilities.</p>
+					<div class="image-container right-aligned medium"">
+						<img src="https://raw.githubusercontent.com/z00bean/ThermalDroneVehicleOBB/refs/heads/main/images_videos_gif/images/RGB-Thermal_samples.jpg" alt="RGB vs Thermal Comparison">
+						<div class="image-caption">Comparison of RGB and Thermal imaging</div>
+					</div>	
 					<h3>Project Details</h3>
+
 					<ul>
 						<li>Thermal UAV video analysis</li>
 						<li>Vehicle tracking and trajectory analysis</li>
@@ -94,12 +100,14 @@
 					</table>
 
 					<h3>Thermal vs RGB Imaging</h3>
-					<p>Thermal imaging allows drones to capture images in complete darkness or through obstacles like smoke, providing a significant utility. A comparison of nighttime images taken simultaneously with regular RGB and thermal cameras from a drone illustrates this point. In the RGB images, vehicles are barely visible. However, in thermal images, objects display distinct shapes and unique thermal signatures. This difference presents a challenge, especially when objects appear small in drone-captured images, making detection and classification difficult.</p>
 
-					<div class="image-container full-width">
-						<img src="https://raw.githubusercontent.com/z00bean/ThermalDroneVehicleOBB/refs/heads/main/images_videos_gif/images/RGB-Thermal_samples.jpg" alt="RGB vs Thermal Comparison">
-						<div class="image-caption">Comparison of RGB and Thermal imaging</div>
-					</div>
+					<p>Thermal imaging allows drones to capture images in complete darkness or through obstacles like smoke, providing a significant utility. A comparison of nighttime images taken simultaneously with regular RGB and thermal cameras from a drone illustrates this point. In the RGB images, vehicles are barely visible. However, in thermal images, objects display distinct shapes and unique thermal signatures. This difference presents a challenge, especially when objects appear small in drone-captured images, making detection and classification difficult.</p>
+					<div class="image-container full-width"">
+						<img src="https://raw.githubusercontent.com/z00bean/ThermalDroneVehicleOBB/refs/heads/main/images_videos_gif/images/viz-roadway-drum.jpg" alt="Visualization of roadway segmentation and work zone region estimation">
+						<div class="image-caption">Visualization of roadway segmentation and work zone region estimation.</div>
+					</div>	
+					<p>In our analysis based on drone videos at the Medford location, we closely monitored 140 vehicles as they traversed over the rumble strips. Our findings revealed that only 40 of these vehicles exhibited a speed reduction greater than 15% upon encountering the rumble strips. This indicates that the presence of rumble strips, while effective for some vehicles, does not universally lead to significant speed adjustments. Furthermore, within the context of lane changes, particularly in the second lane from the left—which also leads directly to a downstream exit ramp—only 22 vehicles (or approximately 15%) engaged in immediate lane changes within a 160-foot distance following the rumble strips. This observation underscores the complexity of interpreting vehicle behavior, as not changing lanes could also align with the intention to exit, rather than not being influenced by the rumble strips.</p>
+					<p>At the Danvers location, the analysis of trajectories for 100 vehicles revealed a consistent pattern, where a similar proportion (15%) of drivers executed immediate lane changes upon encountering rumble strips. This consistency across both locations suggests a broader trend where the presence of rumble strips influences a subset of drivers to adjust their speed or change lanes, albeit a relatively small fraction.</p>
 				</div>
 			</section>
 

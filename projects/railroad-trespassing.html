@@ -23,13 +23,13 @@
 						<li><a href="traffic-camera.html">Low-Light Traffic Camera</a></li>
 						<li class="current-page"><span>Railroad Trespassing Detection</span></li>
 						<li><a href="miso-rag-llm.html">MISO RAG LLM</a></li>
+						<li><a href="truck-rollover.html">Truck Rollover Analysis</a></li>
+						<li><a href="thermal-uav.html">Thermal UAV Analysis</a></li>
 						<li><a href="bento.html">BENTO Traffic Observer</a></li>
 						<li><a href="edge-learning.html">Efficient Edge Learning</a></li>
 						<li><a href="crosswalk-net.html">CrosswalkNet</a></li>
-						<li><a href="thermal-uav.html">Thermal UAV Analysis</a></li>
 						<li><a href="work-zone-safety.html">Work Zone Safety</a></li>
 						<li><a href="netc-ai-studies.html">NETC Pilot AI Studies</a></li>
-						<li><a href="truck-rollover.html">Truck Rollover Analysis</a></li>
 						<li><a href="trip-generation.html">Trip Generation Models</a></li>
 					</ul>
 				</div>
@@ -54,12 +54,16 @@
 						</header>
 						<p><strong>Project Timeline: </strong> 2024-2027 (Ongoing)</p>
 
-						<p>This project utilizes thermal cameras, machine learning, and edge computing to create an affordable detection and warning system for railroad trespassing incidents.</p>
+						<p>TThis project proposes an integrated, low-cost system to detect and deter railroad trespassing incidents, with a focus on improving safety and operational reliability.</p>
 
 						<h3>Project Overview</h3>
-						<p>Railroad trespassing is a significant safety concern that leads to numerous accidents and fatalities each year. This innovative system combines advanced thermal imaging technology with machine learning algorithms to detect unauthorized personnel on railroad tracks and provide real-time warnings.</p>
-
+						<p>This project integrates thermal imaging, machine learning algorithms, and edge computing to develop a cost-effective detection and alerting solution. Core system elements include adaptive warning signage, on-site real-time video analytics, and automated identification of unauthorized access. Powered by solar energy with battery backup, the system enhances operational reliability, enables accurate detection, supports local data storage, minimizes communication expenses, and generates comprehensive insights into trespassing events. Implementation of this approach would allow MassDOT to deploy targeted mitigation strategies, thereby improving rail safety and strengthening overall service reliability.</p>
+						<div class="image-container full-width">
+							<img src="images-projects/railway-tres/greenfield.gif" alt="Thermal camera imagery captured at railroad deployment sites in Greenfield, Massachusetts." />
+							<div class="image-caption">Sample thermal frames captured at railroad sites in Greenfield, MA.</div>
+						</div>
 						<h3>Key Features</h3>
+
 						<ul>
 							<li>Thermal camera-based detection for all-weather operation</li>
 							<li>Real-time machine learning processing at the edge</li>
@@ -72,7 +76,16 @@
 						<h3>Technical Implementation</h3>
 						<p>The system employs thermal cameras that can operate effectively in various weather conditions and lighting scenarios. Edge computing devices process video feeds in real-time using trained machine learning models to detect human presence on tracks. When trespassing is detected, the system activates dynamic warning signs and logs the incident.</p>
 
+						<div class="image-container full-width">
+							<img src="images-projects/railway-tres/taunton.gif" alt="Thermal camera imagery captured at railroad deployment sites in Taunton, Massachusetts, with an overlaid map indicating the approximate camera field of view." />
+							<div class="image-caption">Thermal camera imagery captured at railroad deployment sites in Taunton, Massachusetts, with an overlaid map indicating the approximate camera field of view.</div>
+						</div>
+
 						<h3>System Architecture</h3>
+						<div class="image-container right-aligned medium">
+							<img src="images-projects/railway-tres/thermal-fov-comparision.jpg" alt="Comparison of thermal cameras with different horizontal fields of view, illustrating variations in scene coverage." />
+							<div class="image-caption">Comparison of cameras with different FoV, illustrating variations in scene coverage.</div>
+						</div>
 						<ul>
 							<li><strong>Thermal Imaging:</strong> High-resolution thermal cameras for reliable detection</li>
 							<li><strong>Edge Processing:</strong> Local ML inference for real-time response</li>
@@ -82,6 +95,18 @@
 						</ul>
 
 
+						<p>Edge computing plays a central role in the system architecture by enabling all video analytics and decision-making processes to occur locally at the deployment site. By executing machine learning inference directly on the edge device, the system achieves low-latency detection while eliminating dependence on continuous network connectivity. This localized processing approach enhances reliability, reduces bandwidth requirements, and ensures continued operation even in environments with limited or intermittent communication infrastructure.</p>
+						<div class="image-container full-width">
+							<img src="images-projects/railway-tres/neg-samples-1.jpg" alt="Thermal image showing human detection results from a model trained with a limited number of negative samples, where distant pedestrians are correctly identified in a railroad environment." />
+							<div class="image-caption">Example detection results obtained using varying numbers of negative samples in the training dataset. Results indicate that adding an excessive number of negative samples degrades performance in previously unseen scenes, likely due to the limited informational content of thermal imagery, where distant individuals may be misclassified as artifacts by the model.</div>
+						</div>
+						<div class="image-container right-aligned large">
+							<img src="images-projects/railway-tres/cabinetsign.jpg" alt="Image of a field-deployed cabinet housing the microcontroller, battery, and photovoltaic charge controller for the LED warning sign. The unit communicates wirelessly via Wi-Fi or LoRaWAN with a separate edge cabinet that contains the deep learning module and integrated thermal and RGB camera system." />
+							<div class="image-caption">Hardware enclosure for the LED warning sign, including the microcontroller, battery, and PV charge controller. The unit communicates wirelessly via Wi-Fi or LoRaWAN with an edge computing cabinet containing the deep learning module and thermal–RGB camera system.</div>
+						</div>
+						<p>The system is designed for fully off-grid operation through the use of solar power combined with battery energy storage. This configuration allows for continuous functionality independent of existing electrical infrastructure, making the solution suitable for deployment in remote or hard-to-access rail corridors. The inclusion of battery backup improves system uptime and resilience, ensuring reliable operation during periods of low solar availability or adverse weather conditions.</p>
+
+						<p>Communication within the system is handled through a hybrid wireless architecture. The edge computing module transmits detection events wirelessly to dynamic warning signs, enabling immediate on-site alerts. For remote monitoring and data aggregation, the system utilizes a 4G cellular connection to communicate with cloud-based services. To minimize data usage and communication costs, all video processing is performed locally, with only essential metadata, such as object trajectories and selected key frames, uploaded for further analysis and record-keeping.</p>
 						<h3>Impact</h3>
 						<p>This system provides an affordable and effective solution for railroad safety, potentially preventing accidents and saving lives while reducing operational costs through its off-grid, low-maintenance design.</p>
 					</div>

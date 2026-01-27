@@ -21,13 +21,13 @@
 						<li><a href="traffic-camera.html">Low-Light Traffic Camera</a></li>
 						<li><a href="railroad-trespassing.html">Railroad Trespassing Detection</a></li>
 						<li><a href="miso-rag-llm.html">MISO RAG LLM</a></li>
+						<li><a href="truck-rollover.html">Truck Rollover Analysis</a></li>
+						<li><a href="thermal-uav.html">Thermal UAV Analysis</a></li>
 						<li><a href="bento.html">BENTO Traffic Observer</a></li>
 						<li><a href="edge-learning.html">Efficient Edge Learning</a></li>
 						<li><a href="crosswalk-net.html">CrosswalkNet</a></li>
-						<li><a href="thermal-uav.html">Thermal UAV Analysis</a></li>
 						<li class="current-page"><span>Work Zone Safety</span></li>
 						<li><a href="netc-ai-studies.html">NETC Pilot AI Studies</a></li>
-						<li><a href="truck-rollover.html">Truck Rollover Analysis</a></li>
 						<li><a href="trip-generation.html">Trip Generation Models</a></li>
 					</ul>
 			</div>
@@ -53,11 +53,68 @@
 						<li><a href="https://www.mass.gov/doc/smart-work-zone-control-and-performance-evaluation-based-on-trajectory-data" target="_blank" class="button external-url">MassDOT</a></li>
 					</ul>
 					<p><i>Z. Bhuyan, Y. Xie, R. Liu, Y. Cao and B. Liu, "Towards Safer Highway Work Zones: Insights from Deep Learning Analysis of Thermal Footage," 17th IFAC Symposium on Control in Transportation Systems (2024)</i></p>
-					<p>This research project aims to develop methods to extract vehicle trajectories, use the trajectories to analyze driver behavior, particularly lane-changing behavior under different conditions, and identify safety hazards and opportunities to improve work zone safety and operations.
-						
-					</p>
+					<p>This research project aims to develop methods to extract vehicle trajectories, use the trajectories to analyze driver behavior, particularly lane-changing behavior under different conditions, and identify safety hazards and opportunities to improve work zone safety and operations.</p>
 					<h3>Project Overview</h3>
 					<p>Highway work zones present unique safety challenges for both workers and drivers. This project leverages thermal imaging and deep learning to analyze traffic patterns and driver behavior in work zones, providing insights for improved safety measures.</p>
+					
+					<table>
+						<tr>
+							<td><img src="https://raw.githubusercontent.com/z00bean/SmartWorkZoneControl/refs/heads/main/images/gif/Med-op-veh-Medford-2-COMP.gif" alt="Vehicle Segmentation"></td>
+							<td><img src="https://raw.githubusercontent.com/z00bean/SmartWorkZoneControl/refs/heads/main/images/gif/Med-op-lane-Medford-2-COMP.gif" alt="Lane Closure Segmentation"></td>
+						</tr>
+						<tr>
+							<td><i>Medford, MA: Segmentation of a highway traffic vehicles.</i></td>
+							<td><i>Medford, MA: Segmentation of a lane closure channelizer drums.</i></td>
+						</tr>
+					</table>
+					
+					<h3>Equipment</h3>
+					<p>Data collection was carried out using FLIR TrafiSense AI-632 thermal imaging cameras, with the recorded footage stored locally. The cameras were installed on trailers positioned by the highway and a boom lift for optimal coverage.</p>
+					<div class="image-container full-width"">
+						<img src="https://raw.githubusercontent.com/z00bean/SmartWorkZoneControl/refs/heads/main/images/equipment/main_pg_eq.jpg" alt="Deployment of thermal cameras and radar systems for data collection at the Medford site">
+						<div class="image-caption">Deployment of thermal cameras and radar systems for data collection at the Medford site.</div>
+					</div>	
+					<p>Data collection was conducted with FLIR TrafiSense AI-632 thermal imaging cameras, and the footage was stored on local drives. These cameras were strategically mounted on trailers alongside roads and on a boom lift to ensure extensive coverage.</p>
+					
+					<h3>Thermal Vehicle Segmentation with Deep Learning</h3>
+					<p>Deep learning excels in object detection due to its effective feature recognition capabilities, independent of color information. When integrated with thermal imaging, which detects heat emissions rather than relying on visible light, this approach ensures superior performance under conditions where optical cameras are ineffective.The success of deep learning applications heavily relies on a high-quality, diverse training dataset. Therefore, a substantial effort went into developing a detailed thermal vehicle dataset, designed for the specific conditions of highway work zones.</p>
+					<p>This dataset, critical for training our models to perform effectively in real-world scenarios, was created from thermal footage collected in Medford and Danvers. The dataset has three vehicle categories: small, medium, and large. Small vehicles consist of sedans, motorbikes, SUVs, and pickups. Medium vehicles cover trucks like garbage and concrete mixers, construction vehicles, and buses. Large vehicles include tractor-trailers.</p>
+
+					<h3>Video Processing Framework Highlights</h3>
+					<ol>
+						<li><b>Model Deployment</b>: The trained model and tracking module were deployed on two separate computing environments with NVIDIA A100 and RTX 4090 GPUs, enabling parallel video processing of Medford and Danvers locations.</li>
+						<li><b>Thermal Video Inference</b>: Conducted frame-by-frame vehicle detection and tracking on thermal videos, leveraging powerful hardware for near real-time processing.</li>
+						<li><b>Output Postprocessing</b>: Aggregated detection and tracking data per video, compiling results into a structured JSON format for easy analysis and integration with analytical tools.</li>
+						<li>Video Compression</b>: Compress processed videos for efficient storage and sharing. Achieved a compression ratio of ~95%, reducing 1-hour videos from 3.5-4 GB to 60-110 MB.</li>
+					</ol>
+					<h4>Occluded vehicles</h4>
+					<table class="fit-images">
+						<tr>
+							<td><img src="https://raw.githubusercontent.com/z00bean/SmartWorkZoneControl/refs/heads/main/images/occluded_veh/4a-0003026-Small-99734.jpg" alt="Occluding vehicle"></td>
+							<td><img src="https://raw.githubusercontent.com/z00bean/SmartWorkZoneControl/refs/heads/main/images/occluded_veh/4b-0003027-Small-99746.jpg" alt="Occluded vehicle"></td>
+						</tr>
+						<tr>
+							<td><i>Occluding vehicle.</i></td>
+							<td><i>Occluded vehicle.</i></td>
+						</tr>
+					</table>
+					<h4>Detecting vehicles travelling close to work zone</h4>
+					<table class="fit-images">
+						<tr>
+							<td><img src="https://raw.githubusercontent.com/z00bean/SmartWorkZoneControl/refs/heads/main/images/near-WZ/D-5b-output_frame-2804-64660-Large.jpg" alt="Danvers, MA."></td>
+							<td><img src="https://raw.githubusercontent.com/z00bean/SmartWorkZoneControl/refs/heads/main/images/near-WZ/M-5a-output_frame-1009-48960-Large.jpg" alt="Medford, MA."></td>
+						</tr>
+						<tr>
+							<td><i>Danvers, MA.</i></td>
+							<td><i>Medford, MA.</i></td>
+						</tr>
+					</table>
+					<h4>Sample analytics visualization</h4>
+					<div class="image-container full-width"">
+						<img src="https://raw.githubusercontent.com/z00bean/SmartWorkZoneControl/refs/heads/main/images/CHARTS-MEDFORD/W1v2.png" alt="Sample analysis result">
+						<div class="image-caption">Sample analysis result (Medford site).</div>
+					</div>
+
 					<h3>Funding</h3>
 					<p>MassDOT Research Program with funding from FHWA SPR funds</p>
 				</div>
