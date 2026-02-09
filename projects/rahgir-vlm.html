@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>RAHGIR VLM: Road-scene Analysis for Hazards - Zubin Bhuyan</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="projects_styles.css" />
+	</head>
+	<body class="is-preload compact-layout">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<h1 style="background-color:rgba(13, 51, 27, 0.466);color:white;margin-right:0em">
+						<strong>Zubin Bhuyan, Ph.D.</strong><br />
+						<a href="../index.html" style="color: white; text-decoration: none;">← Back to Portfolio</a>
+					</h1>
+					<br />
+					<h3>Recent Projects</h3>
+					<ul style="list-style: none; padding: 0;">
+						<li class="current-page"><span>RAHGIR VLM</span></li>
+						<li><a href="traffic-camera.html">Low-Light Traffic Camera</a></li>
+						<li><a href="railroad-trespassing.html">Railroad Trespassing Detection</a></li>
+						<li><a href="miso-rag-llm.html">MISO RAG LLM</a></li>
+						<li><a href="truck-rollover.html">Truck Rollover Analysis</a></li>
+						<li><a href="thermal-uav.html">Thermal UAV Analysis</a></li>
+						<li><a href="bento.html">BENTO Traffic Observer</a></li>
+						<li><a href="edge-learning.html">Efficient Edge Learning</a></li>
+						<li><a href="crosswalk-net.html">CrosswalkNet</a></li>
+						<li><a href="work-zone-safety.html">Work Zone Safety</a></li>
+						<li><a href="netc-ai-studies.html">NETC Pilot AI Studies</a></li>
+						<li><a href="trip-generation.html">Trip Generation Models</a></li>
+					</ul>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+				<!-- Project Image -->
+				<section id="project-image">
+					<div class="container">
+						<span class="image fit">
+							<img src="images-projects/rahgir-vlm/webpage_top-part-banner.jpg" alt="RAHGIR VLM System" />
+						</span>
+					</div>
+				</section>
+
+				<!-- Project Details -->
+				<section id="project-details">
+					<div class="container">
+						<header class="major">
+							<h2>RAHGIR VLM: Road-scene Analysis for Hazards with Grounded Interactive Risk Reasoning</h2>
+						</header>
+
+						<p><strong>Project Timeline:</strong> 2026-2028 (Ongoing)</p>
+
+						<h3>Links</h3>
+						<ul class="actions">
+							<li><a href="https://github.com/z00bean/rahgir-vlm" target="_blank" class="button external-url">GitHub</a></li>
+						</ul>
+
+						<p>RAHGIR is a policy-conditioned, domain-specialized vision–language reasoning system designed to analyze forward-facing ego-vehicle road scenes and produce structured, probabilistic assessments of traffic risk under partial observability.</p>
+
+						<div class="image-container full-width">
+							<img src="images-projects/rahgir-vlm/full-webpage-sample_result.jpg" alt="RAHGIR Web Interface" />
+							<div class="image-caption">RAHGIR web interface showing input image, text question, and VLM risk assessment result</div>
+						</div>
+
+						<h3>What RAHGIR Does</h3>
+						<ul>
+							<li>Converts a single road image into explicit risk assessments</li>
+							<li>Reasons from the ego-vehicle perspective using traffic-domain constraints</li>
+							<li>Produces calibrated Low / Medium / High risk estimates with justifications</li>
+						</ul>
+
+						<h3>Key Capabilities</h3>
+						<ul>
+							<li>Policy-conditioned hazard reasoning grounded in visual evidence</li>
+							<li>Explicit modeling of interaction risk between traffic agents</li>
+							<li>Occlusion-aware risk inference under incomplete observability</li>
+							<li>Structured, evaluation-friendly outputs (not free-form captions)</li>
+						</ul>
+
+						<h3>Reasoning Modes</h3>
+						<ul>
+							<li><strong>Observed-agent risk</strong>: Risk estimation conditioned on visible road users</li>
+							<li><strong>Hypothetical-agent risk</strong>: Risk estimation under potential agent emergence from occluded regions</li>
+						</ul>
+
+						<p>RAHGIR is implemented on AWS with explicit reasoning policies, guardrails, calibration layers, and an evaluation harness.</p>
+
+						<h3>Two-Stage Query Processing</h3>
+						<p>RAHGIR employs a cost-efficient two-stage architecture to handle user queries:</p>
+						<ol>
+							<li><strong>Stage 1 – Query Relevance Analysis</strong>: A lightweight text-only model determines if the query is relevant to road safety and risk assessment</li>
+							<li><strong>Stage 2 – Vision-Language Risk Analysis</strong>: Only relevant queries proceed to the expensive VLM for image-based risk assessment</li>
+						</ol>
+
+						<p>This approach prevents costly VLM calls for off-topic queries while maintaining fast response times for legitimate safety questions.</p>
+
+						<h4>Design Evolution</h4>
+						<p>Initially, RAHGIR was tested with a single-stage approach where users submitted fully structured queries directly to the VLM. However, this proved inefficient and inflexible. The current two-stage architecture addresses these limitations by:</p>
+						<ul>
+							<li><strong>Accepting natural language queries</strong>: Users can ask questions in plain English without formatting requirements</li>
+							<li><strong>Extracting key topics</strong>: Stage 1 identifies the intent and key topics (e.g., INTERACTION, WORKZONE, PEDESTRIAN, OCCLUSION) from the user's query</li>
+							<li><strong>Structuring queries internally</strong>: The system automatically reformats and structures the query with appropriate context before passing it to the VLM</li>
+							<li><strong>Filtering irrelevant queries</strong>: Non-relevant queries are rejected at Stage 1, saving VLM costs entirely</li>
+						</ul>
+
+						<h3>Query Filtering Examples</h3>
+						<p>The system intelligently filters non-relevant queries before invoking the VLM:</p>
+
+						<div class="image-container full-width">
+							<img src="images-projects/rahgir-vlm/quantum.jpg" alt="Query filtering example" />
+							<div class="image-caption">Query: "Explain quantum entanglement like I am five" → Stage 1: NOT_RELEVANT | Quantum entanglement → Stage 2: Image analysis skipped</div>
+						</div>
+
+						<p>This pre-filtering is crucial because some queries may superficially appear related to transportation or safety but are actually off-topic. Since VLM queries are expensive, this cheap text-based pre-check significantly reduces operational costs while maintaining system responsiveness.</p>
+
+						<h3>Testing on AWS Bedrock</h3>
+						<p>
+                            In addition to testing via the AWS Bedrock console, the VLM was evaluated through programmatic and workflow-level testing to assess its behavior under realistic usage conditions. We also conducted human-in-the-loop validation, manually reviewing and validating the model’s outputs across 100 representative test cases to assess accuracy, relevance, and safety. We plan to construct a dedicated evaluation dataset and implement automated testing and scoring pipelines to enable repeatable benchmarking, regression testing, and continuous performance monitoring as the system evolves.
+                        </p>
+
+						<div class="image-container full-width">
+							<img src="images-projects/rahgir-vlm/1.2.bedrock-model-interaction-answer.jpg" alt="Bedrock model response" />
+							<div class="image-caption">VLM response showing structured risk assessment in Bedrock</div>
+						</div>
+
+						<h3>Contextual Understanding</h3>
+						<p>RAHGIR demonstrates ability to:</p>
+						<ul>
+							<li><strong>Recognize road-relevant scenes</strong>: Correctly identifies work zones with appropriate risk levels</li>
+							<li><strong>Reject non-road scenes</strong>: Recognizes when an image doesn't depict a road environment</li>
+							<li><strong>Adapt to transportation contexts</strong>: Understands railroad tracks as a transportation risk domain</li>
+							<li><strong>Provide nuanced assessments</strong>: Distinguishes between interaction risks and work zone risks with separate justifications</li>
+						</ul>
+
+						<h3>AWS Guardrails</h3>
+						<p>RAHGIR implements comprehensive AWS Bedrock Guardrails to ensure safe and appropriate system behavior:</p>
+						<ul>
+							<li><strong>Content filtering</strong>: Blocks toxic, harmful, or inappropriate text and image inputs</li>
+							<li><strong>Input validation</strong>: Ensures queries and images meet safety and quality standards</li>
+							<li><strong>Output moderation</strong>: Validates VLM responses before returning to users</li>
+							<li><strong>Policy enforcement</strong>: Maintains domain-specific constraints on reasoning and outputs</li>
+						</ul>
+
+						<h3>AWS Architecture</h3>
+						<p>RAHGIR is deployed as a serverless application on AWS, leveraging multiple managed services for scalability, reliability, and cost-efficiency:</p>
+
+						<h4>Core Services</h4>
+						<ul>
+							<li><strong>Amazon Bedrock</strong>: Hosts the vision-language models (Claude 3 Haiku) for both query analysis and image-based risk assessment</li>
+							<li><strong>AWS Lambda</strong>: Executes the two-stage analysis pipeline with automatic scaling and pay-per-use pricing</li>
+							<li><strong>Amazon API Gateway</strong>: Provides RESTful API endpoint for client requests with request validation and throttling</li>
+							<li><strong>Amazon S3</strong>: Hosts the static web interface with public read access</li>
+							<li><strong>Amazon CloudFront</strong>: Content delivery network (CDN) with global edge locations for low-latency access</li>
+						</ul>
+
+						<h4>Benefits of This Architecture</h4>
+						<ul>
+							<li><strong>Serverless</strong>: No infrastructure management, automatic scaling, pay-per-use pricing</li>
+							<li><strong>Cost-efficient</strong>: Two-stage filtering prevents expensive VLM calls for irrelevant queries</li>
+							<li><strong>Secure</strong>: Bedrock Guardrails, API Gateway throttling, CloudFront HTTPS</li>
+							<li><strong>Scalable</strong>: Handles traffic spikes automatically without manual intervention</li>
+							<li><strong>Global</strong>: CloudFront CDN provides low-latency access worldwide</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Contact -->
+				<section id="three" style="margin-top: 2em;">
+					<h2>Contact</h2>
+					<div class="row">
+						<div class="col-4 col-12-small">
+							<ul class="labeled-icons">
+								<li>
+									<h3 class="icon solid fa-building"><span class="label">Address</span></h3>
+									Miner School of Computer & Information Sciences, <br />
+									1 University Avenue, Lowell
+									MA 01854<br />
+									United States
+								</li>
+							</ul>
+						</div>
+						<div class="col-8 col-12-small">
+							<ul class="labeled-icons">
+								<li>
+									<h3 class="icon solid brands fa-github"><span class="label">Github</span></h3>
+									<a href="https://github.com/z00bean" target="_blank">Github</a>
+								</li>
+								<li>
+									<h3 class="icon solid brands fa-linkedin"><span class="label">LinkedIn</span></h3>
+									<a href="https://www.linkedin.com/in/zubinbhuyan/" target="_blank">LinkedIn</a>
+								</li>
+								<li>
+									<h3 class="icon solid fa-graduation-cap"><span class="label">Scholar</span></h3>
+									<a href="https://scholar.google.com/citations?hl=en&user=h8zdPpUAAAAJ" target="_blank">Google Scholar</a>
+								</li>
+								<li>
+									<h3 class="icon solid brands fa-medium"><span class="label">Medium</span></h3>
+									<a href="https://zubinbhuyan.medium.com/" target="_blank">Medium</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" style="margin-top: 2em;">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://github.com/z00bean" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="http://www.linkedin.com/in/zubinbhuyan" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://scholar.google.com/citations?user=h8zdPpUAAAAJ" target="_blank" class="icon solid fa-graduation-cap"><span class="label">Scholar</span></a></li>
+						<li><a href="https://zubinbhuyan.medium.com/" target="_blank" class="icon brands fa-medium"><span class="label">Medium</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Zubin Bhuyan</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
